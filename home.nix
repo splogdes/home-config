@@ -18,6 +18,9 @@
   home.username = "splogdes";
   home.homeDirectory = "/home/splogdes";
   home.stateVersion = "25.11";
+  home.sessionVariables = {
+    GTK_THEME = "Graphite-orange-Dark";
+  };
 
   home.packages = with pkgs; [
     waybar
@@ -30,6 +33,7 @@
     hyprlock
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     vscode
+    neovim
     spotify
     duf
     tmux
@@ -59,14 +63,25 @@
     ddcutil
     obsidian
     claude-code
+    jujutsu
+    uv
+    ltspice
     (symlinkJoin {
-      name = "picoscope-wrapped";
-      paths = [ picoscope ];
+      name = "kicad-themed";
+      paths = [ kicad ];
       buildInputs = [ makeWrapper ];
       postBuild = ''
-        wrapProgram $out/bin/picoscope \
-          --prefix XDG_DATA_DIRS : "${gtk3}/share/gsettings-schemas/${gtk3.name}:${gsettings-desktop-schemas}/share/gsettings-schemas/${gsettings-desktop-schemas.name}"
+        wrapProgram $out/bin/kicad --set GTK_THEME "Adwaita:dark"
       '';
+    })
+    (symlinkJoin {
+     name = "picoscope-wrapped";
+     paths = [ picoscope ];
+     buildInputs = [ makeWrapper ];
+     postBuild = ''
+       wrapProgram $out/bin/picoscope \
+         --prefix XDG_DATA_DIRS : "${gtk3}/share/gsettings-schemas/${gtk3.name}:${gsettings-desktop-schemas}/share/gsettings-schemas/${gsettings-desktop-schemas.name}"
+     '';
     })
     # ckan is for kerbal space program mod management
     ckan
@@ -159,11 +174,15 @@
       };
     };
 
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
+  dconf = {
+    enable = true;
+    settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
     };
   };
+};
 
-  programs.home-manager.enable = true;
+programs.home-manager.enable = true;
+
 }

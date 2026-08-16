@@ -4,7 +4,8 @@
     enable = true;
     package = pkgs.hyprland;
     xwayland.enable = true;
-    systemd.enable = true; 
+    systemd.enable = true;
+    configType = "hyprlang";
   
     settings = {
 
@@ -22,7 +23,8 @@
 
       # --- MONITOR ---
       monitor = [
-        "DP-3, 2560x1440@74.92, auto, 1"
+        "DP-3, 3840x2160@120, 2560x224, 1.25"
+        "DP-2, 2560x1440@74.92,0x393, 1"
       ];
 
       # --- ENV ---
@@ -62,7 +64,7 @@
         rounding = 14;
 
         active_opacity = 1.0;
-        inactive_opacity = 0.94;
+        inactive_opacity = 0.9;
 
         blur = {
           enabled = true;
@@ -112,8 +114,7 @@
 
       # --- LAYOUT ---
       dwindle = {
-        pseudotile = true; 
-        preserve_split = true; 
+        preserve_split = true;
       };
 
       misc = {
@@ -125,6 +126,7 @@
       # --- WINDOW RULES ---
       windowrule = [
         # Opacity Rules
+        "match:class (kitty), opacity 0.85 override 0.75 override"
         "match:class (zen), opacity 1.0 override 1.0 override"
         "match:class (spotify), opacity 0.8 override 0.8 override"
 
@@ -191,7 +193,8 @@
         "$mod, Return, exec, kitty" 
         "$mod, Q, killactive," 
         "$mod, F, fullscreen, 0" 
-        "$mod, Space, togglefloating," 
+        "$mod, Space, togglefloating,"
+        "$mod, P, pseudo,"
         
         ", Print, exec, grimblast --notify copysave area"
         "$mod, Print, exec, grimblast --notify copysave active"
@@ -206,7 +209,12 @@
         "$mod SHIFT, 2, movetoworkspace, 2" 
         "$mod SHIFT, 3, movetoworkspace, 3" 
         "$mod SHIFT, 4, movetoworkspace, 4" 
-        "$mod SHIFT, 5, movetoworkspace, 5" 
+        "$mod SHIFT, 5, movetoworkspace, 5"
+
+        "$mod, comma,  focusmonitor, l"
+        "$mod, period, focusmonitor, r"
+        "$mod SHIFT, comma,  movecurrentworkspacetomonitor, l"
+        "$mod SHIFT, period, movecurrentworkspacetomonitor, r"
 
         "$mod, L, exec, hyprlock"
 
