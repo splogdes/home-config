@@ -62,7 +62,6 @@
     ddcutil
     obsidian
     claude-code
-    jujutsu
     uv
     ltspice
     (symlinkJoin {
@@ -109,6 +108,17 @@
         init = {
           defaultBranch = "main";
         };
+      };
+    };
+
+    jujutsu = {
+      enable = true;
+      settings = {
+        user = {
+          name = "splogdes";
+          email = "95136830+splogdes@users.noreply.github.com";
+        };
+        ui.default-command = "log";
       };
     };
 
