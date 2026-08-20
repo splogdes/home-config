@@ -11,6 +11,11 @@ in
   };
 
   home.sessionVariables = {
+    # Use fd for fzf so it honours .gitignore and skips .git.
+    FZF_DEFAULT_COMMAND = "fd --type f --hidden --follow --exclude .git";
+    FZF_CTRL_T_COMMAND = "fd --type f --hidden --follow --exclude .git";
+    FZF_ALT_C_COMMAND = "fd --type d --hidden --follow --exclude .git";
+
     FZF_DEFAULT_OPTS = " \
       --color=fg:${p.hex p.text},bg:${p.hex p.void},hl:${p.hex p.amber} \
       --color=fg+:${p.hex p.bright},bg+:${p.hex p.surface2},hl+:${p.hex p.amberBright} \
