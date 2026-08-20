@@ -1,4 +1,8 @@
-{ ... }:
+{ lib, ... }:
+
+let
+  p = import ./palette.nix { inherit lib; };
+in
 {
   programs.wofi = {
     enable = true;
@@ -24,8 +28,8 @@
       /* Main Window */
       window {
           margin: 0px;
-          border: 1px solid rgba(212, 151, 89, 0.55);
-          background-color: rgba(8, 9, 13, 0.78);
+          border: 1px solid ${p.rgba p.amber "0.55"};
+          background-color: ${p.rgba p.void "0.78"};
           font-family: "JetBrainsMono Nerd Font", monospace;
           border-radius: 20px;
       }
@@ -34,15 +38,15 @@
       #input {
           margin: 18px;
           padding: 12px 18px;
-          border: 1px solid rgba(143, 180, 212, 0.35);
+          border: 1px solid ${p.rgba p.blueBright "0.35"};
           border-radius: 14px;
-          background-color: rgba(15, 18, 24, 0.7);
-          color: #dbe4ec;
+          background-color: ${p.rgba p.surface0 "0.7"};
+          color: ${p.hex p.bright};
           font-weight: 500;
       }
 
       #input:focus {
-          border: 1px solid rgba(212, 151, 89, 0.55);
+          border: 1px solid ${p.rgba p.amber "0.55"};
       }
 
       #inner-box {
@@ -63,7 +67,7 @@
       #text {
           margin: 6px 10px;
           border: none;
-          color: #c8d1dc;
+          color: ${p.hex p.text};
       }
 
       /* Entries */
@@ -76,16 +80,16 @@
 
       /* Selected Entry */
       #entry:selected {
-          background: linear-gradient(90deg, rgba(212, 151, 89, 0.22) 0%, rgba(212, 151, 89, 0.0) 100%);
-          border: 1px solid rgba(212, 151, 89, 0.55);
+          background: linear-gradient(90deg, ${p.rgba p.amber "0.22"} 0%, ${p.rgba p.amber "0.0"} 100%);
+          border: 1px solid ${p.rgba p.amber "0.55"};
           border-radius: 12px;
           outline: none;
       }
 
       #text:selected {
-          color: #dbe4ec;
+          color: ${p.hex p.bright};
           font-weight: 600;
-          text-shadow: 0px 0px 4px rgba(212, 151, 89, 0.4);
+          text-shadow: 0px 0px 4px ${p.rgba p.amber "0.4"};
       }
 
       #img {

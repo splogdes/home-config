@@ -1,5 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
+let p = import ./palette.nix { inherit lib; }; in
 {
   programs.btop = {
     enable = true;
@@ -26,73 +27,73 @@
     # Dusty blues, amber accents, cloud whites on deep void
 
     # --- MAIN INTERFACE ---
-    theme[main_bg]="#08090d"
-    theme[main_fg]="#c8d1dc"
-    theme[title]="#dbe4ec"
-    theme[hi_fg]="#d49759"
+    theme[main_bg]="${p.hex p.void}"
+    theme[main_fg]="${p.hex p.text}"
+    theme[title]="${p.hex p.bright}"
+    theme[hi_fg]="${p.hex p.amber}"
 
     # --- BOX OUTLINES (dim ocean blue) ---
-    theme[cpu_box]="#3a5b7a"
-    theme[mem_box]="#3a5b7a"
-    theme[net_box]="#3a5b7a"
-    theme[proc_box]="#3a5b7a"
-    theme[div_line]="#1f242e"
+    theme[cpu_box]="${p.hex p.blueDim}"
+    theme[mem_box]="${p.hex p.blueDim}"
+    theme[net_box]="${p.hex p.blueDim}"
+    theme[proc_box]="${p.hex p.blueDim}"
+    theme[div_line]="${p.hex p.surface2}"
 
     # --- SELECTION & INACTIVE ---
-    theme[selected_bg]="#d49759"
-    theme[selected_fg]="#08090d"
-    theme[inactive_fg]="#4a525e"
-    theme[meter_bg]="#15191f"
+    theme[selected_bg]="${p.hex p.amber}"
+    theme[selected_fg]="${p.hex p.void}"
+    theme[inactive_fg]="${p.hex p.dim}"
+    theme[meter_bg]="${p.hex p.surface1}"
 
     # --- MISC TEXT ---
-    theme[graph_text]="#8fb4d4"
-    theme[proc_misc]="#7e8694"
+    theme[graph_text]="${p.hex p.blueBright}"
+    theme[proc_misc]="${p.hex p.muted}"
 
     # --- TEMPERATURE GRADIENT (cool → hot) ---
-    theme[temp_start]="#6b8db0"
-    theme[temp_mid]="#d49759"
-    theme[temp_end]="#b85842"
+    theme[temp_start]="${p.hex p.blue}"
+    theme[temp_mid]="${p.hex p.amber}"
+    theme[temp_end]="${p.hex p.rust}"
 
     # --- CPU GRAPH (data stream) ---
-    theme[cpu_start]="#3a5b7a"
-    theme[cpu_mid]="#8fb4d4"
-    theme[cpu_end]="#dbe4ec"
+    theme[cpu_start]="${p.hex p.blueDim}"
+    theme[cpu_mid]="${p.hex p.blueBright}"
+    theme[cpu_end]="${p.hex p.bright}"
 
     # --- MEMORY & DISK METERS ---
     # Free (dim ocean)
-    theme[free_start]="#3a5b7a"
-    theme[free_mid]="#6b8db0"
-    theme[free_end]="#8fb4d4"
+    theme[free_start]="${p.hex p.blueDim}"
+    theme[free_mid]="${p.hex p.blue}"
+    theme[free_end]="${p.hex p.blueBright}"
 
     # Cached (muted slate)
-    theme[cached_start]="#3a4250"
-    theme[cached_mid]="#4a525e"
-    theme[cached_end]="#5a6270"
+    theme[cached_start]="${p.hex p.overlay}"
+    theme[cached_mid]="${p.hex p.dim}"
+    theme[cached_end]="${p.hex p.dim2}"
 
     # Available (glow blue)
-    theme[available_start]="#6b8db0"
-    theme[available_mid]="#8fb4d4"
-    theme[available_end]="#b3d4ec"
+    theme[available_start]="${p.hex p.blue}"
+    theme[available_mid]="${p.hex p.blueBright}"
+    theme[available_end]="${p.hex p.blueBrightest}"
 
     # Used (amber → solar)
-    theme[used_start]="#6b8db0"
-    theme[used_mid]="#d49759"
-    theme[used_end]="#f0b070"
+    theme[used_start]="${p.hex p.blue}"
+    theme[used_mid]="${p.hex p.amber}"
+    theme[used_end]="${p.hex p.amberBright}"
 
     # --- NETWORK GRAPHS ---
     # Download (cool blue)
-    theme[download_start]="#3a5b7a"
-    theme[download_mid]="#8fb4d4"
-    theme[download_end]="#dbe4ec"
+    theme[download_start]="${p.hex p.blueDim}"
+    theme[download_mid]="${p.hex p.blueBright}"
+    theme[download_end]="${p.hex p.bright}"
 
     # Upload (amber, direction = warmth)
-    theme[upload_start]="#a85b2e"
-    theme[upload_mid]="#d49759"
-    theme[upload_end]="#f0b070"
+    theme[upload_start]="${p.hex p.amberDark}"
+    theme[upload_mid]="${p.hex p.amber}"
+    theme[upload_end]="${p.hex p.amberBright}"
 
     # --- PROCESS BOX ---
-    theme[process_start]="#6b8db0"
-    theme[process_mid]="#8fb4d4"
-    theme[process_end]="#d49759"
+    theme[process_start]="${p.hex p.blue}"
+    theme[process_mid]="${p.hex p.blueBright}"
+    theme[process_end]="${p.hex p.amber}"
   '';
 }

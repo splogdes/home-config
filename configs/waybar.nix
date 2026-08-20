@@ -1,9 +1,10 @@
 { pkgs, lib, ... }:
 let
+  p = import ./palette.nix { inherit lib; };
   powerStyle = pkgs.writeText "power-style.css" ''
     window {
-      background-color: rgba(8, 9, 13, 0.85);
-      border: 1px solid rgba(184, 88, 66, 0.65);
+      background-color: ${p.rgba p.void "0.85"};
+      border: 1px solid ${p.rgba p.rust "0.65"};
       border-radius: 14px;
       font-family: "JetBrainsMono Nerd Font", monospace;
     }
@@ -26,21 +27,21 @@ let
     #entry {
       padding: 10px;
       margin: 2px 0px;
-      color: #c8d1dc;
+      color: ${p.hex p.text};
     }
 
     #entry:selected {
-      background: linear-gradient(90deg, rgba(184, 88, 66, 0.22) 0%, rgba(184, 88, 66, 0.0) 100%);
-      border-left: 2px solid #b85842;
+      background: linear-gradient(90deg, ${p.rgba p.rust "0.22"} 0%, ${p.rgba p.rust "0.0"} 100%);
+      border-left: 2px solid ${p.hex p.rust};
       border-radius: 4px;
-      color: #dbe4ec;
+      color: ${p.hex p.bright};
     }
   '';
 
   tempStyle = pkgs.writeText "temp-style.css" ''
     window {
-      background-color: rgba(8, 9, 13, 0.85);
-      border: 1px solid rgba(212, 151, 89, 0.55);
+      background-color: ${p.rgba p.void "0.85"};
+      border: 1px solid ${p.rgba p.amber "0.55"};
       border-radius: 14px;
       font-family: "JetBrainsMono Nerd Font", monospace;
     }
@@ -50,14 +51,14 @@ let
     #entry {
       padding: 12px;
       margin: 2px 0px;
-      color: #c8d1dc;
+      color: ${p.hex p.text};
     }
 
     #entry:selected {
-      background: linear-gradient(90deg, rgba(212, 151, 89, 0.22) 0%, rgba(212, 151, 89, 0.0) 100%);
-      border-left: 2px solid #d49759;
+      background: linear-gradient(90deg, ${p.rgba p.amber "0.22"} 0%, ${p.rgba p.amber "0.0"} 100%);
+      border-left: 2px solid ${p.hex p.amber};
       border-radius: 0px 4px 4px 0px;
-      color: #dbe4ec;
+      color: ${p.hex p.bright};
     }
   '';
 
@@ -278,10 +279,10 @@ in
             weeks-pos = "right";
             on-scroll = 1;
             format = {
-              months = "<span color='#8fb4d4'><b>{}</b></span>";
-              days = "<span color='#c8d1dc'>{}</span>";
-              weeks = "<span color='#4a525e'>w{}</span>";
-              today = "<span color='#d49759'><b><u>{}</u></b></span>";
+              months = "<span color='${p.hex p.blueBright}'><b>{}</b></span>";
+              days = "<span color='${p.hex p.text}'>{}</span>";
+              weeks = "<span color='${p.hex p.dim}'>w{}</span>";
+              today = "<span color='${p.hex p.amber}'><b><u>{}</u></b></span>";
             };
           };
 
@@ -317,12 +318,12 @@ in
       .modules-left,
       .modules-center,
       .modules-right {
-          background-color: rgba(8, 9, 13, 0.55);
-          border: 1px solid rgba(212, 151, 89, 0.35);
+          background-color: ${p.rgba p.void "0.55"};
+          border: 1px solid ${p.rgba p.amber "0.35"};
           border-radius: 14px;
           padding: 2px 10px;
           margin: 2px 4px;
-          color: #c8d1dc;
+          color: ${p.hex p.text};
       }
 
       /* --- MODULE DEFAULTS --- */
@@ -343,37 +344,37 @@ in
       #clock,
       #custom-power {
           padding: 0 8px;
-          color: #c8d1dc;
+          color: ${p.hex p.text};
           background: transparent;
       }
 
       /* --- SEGMENT DIVIDER --- */
       #custom-sep {
-          color: #4a525e;
+          color: ${p.hex p.dim};
           padding: 0 8px;
           font-size: 15px;
       }
 
       /* --- ACCENTS --- */
       #custom-logo {
-          color: #d49759;
+          color: ${p.hex p.amber};
           font-size: 16px;
           padding: 0 9px 0 2px;
       }
 
       #custom-monitor-temp {
-          color: #8fb4d4;
+          color: ${p.hex p.blueBright};
           font-size: 15px;
       }
 
       #clock {
-          color: #dbe4ec;
+          color: ${p.hex p.bright};
           font-weight: bold;
           letter-spacing: 1px;
       }
 
       #custom-power {
-          color: #b85842;
+          color: ${p.hex p.rust};
           font-size: 16px;
           padding: 0 9px 0 2px;
       }
@@ -384,7 +385,7 @@ in
       }
 
       #workspaces button {
-          color: #7e8694;
+          color: ${p.hex p.muted};
           min-width: 18px;
           padding: 0 9px 0 2px;
           margin: 3px 1px;
@@ -394,18 +395,18 @@ in
       }
 
       #workspaces button.active {
-          color: #d49759;
-          background-color: rgba(212, 151, 89, 0.12);
+          color: ${p.hex p.amber};
+          background-color: ${p.rgba p.amber "0.12"};
       }
 
       #workspaces button:hover {
-          background-color: rgba(143, 180, 212, 0.08);
-          color: #8fb4d4;
+          background-color: ${p.rgba p.blueBright "0.08"};
+          color: ${p.hex p.blueBright};
       }
 
       /* --- CAVA --- */
       #cava {
-          color: #6b8db0;
+          color: ${p.hex p.blue};
           font-size: 12px;
           font-family: "Symbols Nerd Font Mono";
           padding: 0 10px;
@@ -413,7 +414,7 @@ in
 
       /* --- MPRIS --- */
       #mpris {
-          color: #8fb4d4;
+          color: ${p.hex p.blueBright};
           font-style: italic;
       }
 
@@ -423,15 +424,15 @@ in
       #disk,
       #pulseaudio,
       #bluetooth {
-          color: #8fb4d4;
+          color: ${p.hex p.blueBright};
       }
 
       #custom-gpu-usage {
-          color: #d49759;
+          color: ${p.hex p.amber};
       }
 
       #pulseaudio.muted {
-          color: #4a525e;
+          color: ${p.hex p.dim};
       }
 
       /* --- TRAY --- */
@@ -448,13 +449,13 @@ in
       }
 
       tooltip {
-          background-color: rgba(8, 9, 13, 0.95);
-          border: 1px solid rgba(212, 151, 89, 0.45);
+          background-color: ${p.rgba p.void "0.95"};
+          border: 1px solid ${p.rgba p.amber "0.45"};
           border-radius: 10px;
       }
 
       tooltip label {
-          color: #c8d1dc;
+          color: ${p.hex p.text};
           padding: 4px;
       }
     '';

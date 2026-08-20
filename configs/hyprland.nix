@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
+let
+  p = import ./palette.nix { inherit lib; };
+in
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -53,8 +56,8 @@
         gaps_out = 16;
         border_size = 1;
 
-        "col.active_border" = "rgba(d49759bb)";
-        "col.inactive_border" = "rgba(0f1218aa)";
+        "col.active_border" = p.hyprRgba p.amber "bb";
+        "col.inactive_border" = p.hyprRgba p.surface0 "aa";
 
         resize_on_border = true;
       };

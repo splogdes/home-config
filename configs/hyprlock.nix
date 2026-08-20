@@ -1,4 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
+
+let
+  p = import ./palette.nix { inherit lib; };
+in
 {
   programs.hyprlock = {
     enable = true;
@@ -38,9 +42,9 @@
           dots_center = true;
           dots_rounding = -1;
 
-          outer_color = "rgba(212, 151, 89, 0.55)";
-          inner_color = "rgba(8, 9, 13, 0.7)";
-          font_color = "rgb(219, 228, 236)";
+          outer_color = p.rgba p.amber "0.55";
+          inner_color = p.rgba p.void "0.7";
+          font_color = p.rgb p.bright;
 
           fade_on_empty = false;
           placeholder_text = "<i>access code</i>";
@@ -48,8 +52,8 @@
 
           rounding = 28;
 
-          check_color = "rgb(143, 180, 212)";
-          fail_color = "rgb(184, 88, 66)";
+          check_color = p.rgb p.blueBright;
+          fail_color = p.rgb p.rust;
           fail_text = "<i>denied</i>";
         }
       ];
@@ -59,7 +63,7 @@
         # Time
         {
           text = "$TIME";
-          color = "rgba(219, 228, 236, 1.0)";
+          color = p.rgba p.bright "1.0";
           font_size = 110;
           font_family = "JetBrainsMono Nerd Font";
 
@@ -69,13 +73,13 @@
 
           shadow_passes = 3;
           shadow_size = 8;
-          shadow_color = "rgba(212, 151, 89, 0.35)";
+          shadow_color = p.rgba p.amber "0.35";
         }
 
         # Date
         {
           text = "cmd[update:1000] echo \"$(date +'%A · %d %B' | tr '[:upper:]' '[:lower:]')\"";
-          color = "rgba(126, 134, 148, 1.0)";
+          color = p.rgba p.muted "1.0";
           font_size = 14;
           font_family = "JetBrainsMono Nerd Font";
 

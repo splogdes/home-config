@@ -1,4 +1,8 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }:
+let
+  p = import ./palette.nix { inherit lib; };
+in
+{
 
   # --- FZF (Artemis palette) ---
   programs.fzf = {
@@ -8,11 +12,11 @@
 
   home.sessionVariables = {
     FZF_DEFAULT_OPTS = " \
-      --color=fg:#c8d1dc,bg:#08090d,hl:#d49759 \
-      --color=fg+:#dbe4ec,bg+:#1f242e,hl+:#f0b070 \
-      --color=info:#6b8db0,prompt:#8fb4d4,pointer:#d49759 \
-      --color=marker:#d49759,spinner:#d49759,header:#6b8db0 \
-      --color=border:#1f242e \
+      --color=fg:${p.hex p.text},bg:${p.hex p.void},hl:${p.hex p.amber} \
+      --color=fg+:${p.hex p.bright},bg+:${p.hex p.surface2},hl+:${p.hex p.amberBright} \
+      --color=info:${p.hex p.blue},prompt:${p.hex p.blueBright},pointer:${p.hex p.amber} \
+      --color=marker:${p.hex p.amber},spinner:${p.hex p.amber},header:${p.hex p.blue} \
+      --color=border:${p.hex p.surface2} \
       --border='rounded' --padding='1' --margin='1' \
       --prompt='search ❯ ' \
       --marker='' --pointer='' \
@@ -36,11 +40,11 @@
 
       setopt PROMPT_SUBST
 
-      local CL_BLUE="%F{#8fb4d4}"
-      local CL_AMBER="%F{#d49759}"
-      local CL_TEXT="%F{#c8d1dc}"
-      local CL_DIM="%F{#4a525e}"
-      local CL_RUST="%F{#b85842}"
+      local CL_BLUE="${p.zsh p.blueBright}"
+      local CL_AMBER="${p.zsh p.amber}"
+      local CL_TEXT="${p.zsh p.text}"
+      local CL_DIM="${p.zsh p.dim}"
+      local CL_RUST="${p.zsh p.rust}"
       local RST="%f"
 
       function artemis_git() {

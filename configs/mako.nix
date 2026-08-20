@@ -1,5 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
+let p = import ./palette.nix { inherit lib; }; in
 {
   services.mako = {
     enable = true;
@@ -10,10 +11,10 @@
       width = 380;
       height = 140;
 
-      "background-color" = "#0f1218e6";
-      "text-color" = "#c8d1dc";
+      "background-color" = p.hexA p.surface0 "e6";
+      "text-color" = p.hex p.text;
 
-      "border-color" = "#d49759";
+      "border-color" = p.hex p.amber;
       "border-size" = 1;
       "border-radius" = 14;
 
@@ -32,19 +33,19 @@
 
     extraConfig = ''
       [urgency=low]
-      border-color=#3a4250
-      text-color=#7e8694
+      border-color=${p.hex p.overlay}
+      text-color=${p.hex p.muted}
 
       [urgency=normal]
-      border-color=#d49759
+      border-color=${p.hex p.amber}
 
       [urgency=critical]
-      border-color=#b85842
-      text-color=#dbe4ec
+      border-color=${p.hex p.rust}
+      text-color=${p.hex p.bright}
       default-timeout=0
 
       [category=mpd]
-      border-color=#6b8db0
+      border-color=${p.hex p.blue}
       default-timeout=2000
       group-by=category
     '';

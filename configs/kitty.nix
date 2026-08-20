@@ -1,4 +1,6 @@
-{ ... }:
+{ lib, ... }:
+
+let p = import ./palette.nix { inherit lib; }; in
 {
   programs.kitty = {
     enable = true;
@@ -9,11 +11,11 @@
       disable_ligatures = "never";
 
       # --- BACKGROUND ---
-      background = "#08090d";
+      background = p.hex p.void;
       background_opacity = "0.85";
 
       # --- FOREGROUND ---
-      foreground = "#c8d1dc";
+      foreground = p.hex p.text;
 
       # --- WINDOW ---
       window_border_width = "0pt";
@@ -21,8 +23,8 @@
       hide_window_decorations = "yes";
 
       # --- CURSOR ---
-      cursor = "#d49759";
-      cursor_text_color = "#08090d";
+      cursor = p.hex p.amber;
+      cursor_text_color = p.hex p.void;
       cursor_shape = "beam";
       cursor_beam_thickness = "1.5";
       cursor_blink_interval = "0";
@@ -31,50 +33,50 @@
       tab_bar_edge = "top";
       tab_bar_style = "powerline";
       tab_powerline_style = "slanted";
-      active_tab_foreground = "#08090d";
-      active_tab_background = "#d49759";
+      active_tab_foreground = p.hex p.void;
+      active_tab_background = p.hex p.amber;
       active_tab_font_style = "bold";
-      inactive_tab_foreground = "#7e8694";
-      inactive_tab_background = "#0f1218";
+      inactive_tab_foreground = p.hex p.muted;
+      inactive_tab_background = p.hex p.surface0;
 
       # --- ARTEMIS PALETTE ---
 
       # Black: void / mute
-      color0  = "#15191f";
-      color8  = "#3a4250";
+      color0  = p.hex p.surface1;
+      color8  = p.hex p.overlay;
 
       # Red: rust alert
-      color1  = "#b85842";
-      color9  = "#d27260";
+      color1  = p.hex p.rust;
+      color9  = p.hex p.rustBright;
 
       # Green: muted moss
-      color2  = "#7da784";
-      color10 = "#9bc7a3";
+      color2  = p.hex p.green;
+      color10 = p.hex p.greenBright;
 
       # Yellow: amber
-      color3  = "#d49759";
-      color11 = "#f0b070";
+      color3  = p.hex p.amber;
+      color11 = p.hex p.amberBright;
 
       # Blue: ocean / atmosphere
-      color4  = "#6b8db0";
-      color12 = "#8fb4d4";
+      color4  = p.hex p.blue;
+      color12 = p.hex p.blueBright;
 
       # Magenta: dusty violet
-      color5  = "#8a7aa0";
-      color13 = "#a89cc4";
+      color5  = p.hex p.violet;
+      color13 = p.hex p.violetBright;
 
       # Cyan: glow blue (not neon)
-      color6  = "#8fb4d4";
-      color14 = "#b3d4ec";
+      color6  = p.hex p.blueBright;
+      color14 = p.hex p.blueBrightest;
 
       # White: text / cloud
-      color7  = "#c8d1dc";
-      color15 = "#dbe4ec";
+      color7  = p.hex p.text;
+      color15 = p.hex p.bright;
 
       # --- UX EXTRAS ---
-      selection_foreground = "#08090d";
-      selection_background = "#d49759";
-      url_color = "#8fb4d4";
+      selection_foreground = p.hex p.void;
+      selection_background = p.hex p.amber;
+      url_color = p.hex p.blueBright;
       url_style = "single";
     };
   };
