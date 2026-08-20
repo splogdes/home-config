@@ -193,7 +193,7 @@ in
         "$mod SHIFT, R, exec, hyprctl reload"
 
         "$mod, D, exec, wofi --show drun" 
-        "$mod, Return, exec, kitty" 
+        "$mod, Return, exec, kitty --single-instance" 
         "$mod, Q, killactive," 
         "$mod, F, fullscreen, 0" 
         "$mod, Space, togglefloating,"
@@ -225,7 +225,7 @@ in
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioNext, exec, playerctl next"
         ", XF86AudioPrev, exec, playerctl previous"
-        ", XF86Calculator, exec, kitty -e python3"
+        ", XF86Calculator, exec, kitty --single-instance -e python3"
         ", XF86ScreenSaver, exec, hyprlock"
         ", XF86Search, exec, wofi --show drun"
       ];
