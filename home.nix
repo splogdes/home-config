@@ -1,4 +1,3 @@
-
 { inputs, pkgs, ... }:
 
 {
@@ -6,6 +5,7 @@
     ./configs/hyprland.nix
     ./configs/hyprlock.nix
     ./configs/hypridle.nix
+    ./configs/gtk.nix
     ./configs/kitty.nix
     ./configs/neovim.nix
     ./configs/tmux.nix
@@ -15,86 +15,58 @@
     ./configs/mako.nix
     ./configs/btop.nix
     ./configs/fastfetch.nix
+    ./configs/electronics.nix
     ./packages/artemis-vcs.nix
   ];
 
   home.username = "splogdes";
   home.homeDirectory = "/home/splogdes";
   home.stateVersion = "25.11";
-  home.sessionVariables = {
-    GTK_THEME = "Colloid-Orange-Dark";
-  };
 
+  # Anything with a programs.* or services.* module below is installed by that
+  # module, so it does not belong here.
   home.packages = with pkgs; [
-    waybar
-    wofi
+    # --- DESKTOP SHELL ---
     hyprpaper
-    mako
-    libnotify
-    kitty
     hyprpolkitagent
-    hyprlock
+    libnotify
+    nwg-look
+    # gsettings CLI, used by nwg-look and the dconf settings
+    glib
+
+    # --- SCREENSHOT & MEDIA ---
+    grimblast
+    swappy
+    cava
+    pavucontrol
+
+    # --- APPS ---
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     vscode
     spotify
-    duf
-    seahorse
-    fzf
-    ripgrep
-    fd
-    cava
-    grimblast
-    swappy
-    pavucontrol
-    bibata-cursors
-    (colloid-gtk-theme.override {
-      colorVariants = [ "dark" ];
-      tweaks = [ "rimless" "black" ];
-      themeVariants = [ "orange" ];
-    })
-    papirus-icon-theme
-    nwg-look
-    glib
-    fastfetch
-    playerctl
-    nvidia-vaapi-driver
     signal-desktop
-    baobab
-    gparted
-    thunar
-    ddcutil
     obsidian
-    claude-code
-    uv
-    ltspice
-    (symlinkJoin {
-      name = "kicad-themed";
-      paths = [ kicad ];
-      buildInputs = [ makeWrapper ];
-      postBuild = ''
-        wrapProgram $out/bin/kicad --set GTK_THEME "Adwaita:dark"
-      '';
-    })
-    (symlinkJoin {
-     name = "picoscope-wrapped";
-     paths = [ picoscope ];
-     buildInputs = [ makeWrapper ];
-     postBuild = ''
-       wrapProgram $out/bin/picoscope \
-         --prefix XDG_DATA_DIRS : "${gtk3}/share/gsettings-schemas/${gtk3.name}:${gsettings-desktop-schemas}/share/gsettings-schemas/${gsettings-desktop-schemas.name}"
-     '';
-    })
-    arduino-ide
-    arduino-cli
-    (python3.withPackages (ps: [ ps.pyserial ]))
-    tio
-    i2c-tools
     # ckan is for kerbal space program mod management
     ckan
+
+    # --- CLI ---
+    fd
+    ripgrep
+    duf
+    uv
+    claude-code
+
+    # --- SYSTEM ---
+    seahorse
+    gparted
+    baobab
+    thunar
+    ddcutil
+    nvidia-vaapi-driver
   ];
-  
+
   services.playerctld.enable = true;
-  
+
   services.blueman-applet.enable = true;
 
   programs = {
@@ -132,6 +104,8 @@
         "--cmd cd"
       ];
     };
+
+    home-manager.enable = true;
   };
 
   services.hyprpaper = {
@@ -153,54 +127,9 @@
   xdg.portal = {
     enable = true;
     config.common.default = "*";
-    extraPortals = [ 
-      pkgs.xdg-desktop-portal-gtk 
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-hyprland
     ];
   };
-
-  home.pointerCursor = {
-    enable = true;
-    gtk.enable = true;
-    x11.enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Classic";
-    size = 24;
-  };
-
-  gtk = {
-      enable = true;
-      
-      theme = {
-        name = "Colloid-Orange-Dark";
-        package = pkgs.colloid-gtk-theme.override {
-            tweaks = [ "rimless" "black" ];
-            colorVariants = [ "dark" ];
-            themeVariants = [ "orange" ];
-        };
-      };
-
-      iconTheme = {
-        name = "Papirus";
-        package = pkgs.papirus-icon-theme;
-      };
-      
-      gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
-      gtk4 = {
-        extraConfig.gtk-application-prefer-dark-theme = 1;
-        theme = null;
-      };
-    };
-
-  dconf = {
-    enable = true;
-    settings = {
-      "org/gnome/desktop/interface" = {
-        color-scheme = "prefer-dark";
-    };
-  };
-};
-
-programs.home-manager.enable = true;
-
 }
