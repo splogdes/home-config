@@ -19,7 +19,7 @@
   home.homeDirectory = "/home/splogdes";
   home.stateVersion = "25.11";
   home.sessionVariables = {
-    GTK_THEME = "Graphite-orange-Dark";
+    GTK_THEME = "Colloid-Orange-Dark";
   };
 
   home.packages = with pkgs; [
@@ -44,9 +44,9 @@
     swappy
     pavucontrol
     bibata-cursors
-    (graphite-gtk-theme.override {
+    (colloid-gtk-theme.override {
       colorVariants = [ "dark" ];
-      tweaks = [ "rimless" "darker" ];
+      tweaks = [ "rimless" "black" ];
       themeVariants = [ "orange" ];
     })
     papirus-icon-theme
@@ -143,6 +143,7 @@
   };
 
   home.pointerCursor = {
+    enable = true;
     gtk.enable = true;
     x11.enable = true;
     package = pkgs.bibata-cursors;
@@ -154,9 +155,9 @@
       enable = true;
       
       theme = {
-        name = "Graphite-orange-Dark";
-        package = pkgs.graphite-gtk-theme.override {
-            tweaks = [ "rimless" "darker" ];
+        name = "Colloid-Orange-Dark";
+        package = pkgs.colloid-gtk-theme.override {
+            tweaks = [ "rimless" "black" ];
             colorVariants = [ "dark" ];
             themeVariants = [ "orange" ];
         };
