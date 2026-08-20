@@ -37,6 +37,12 @@ let
 
     violet       = "8a7aa0";
     violetBright = "a89cc4";
+
+    # Tinted backgrounds for diff hunks — dark enough to sit under body text.
+    diffAddBg    = "0d1f12";
+    diffChangeBg = "1a1608";
+    diffDeleteBg = "1f0a08";
+    diffTextBg   = "2a1e0a";
   };
 
   comp = c: i: toString (lib.fromHexString (builtins.substring i 2 c));

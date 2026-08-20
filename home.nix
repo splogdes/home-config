@@ -7,12 +7,15 @@
     ./configs/hyprlock.nix
     ./configs/hypridle.nix
     ./configs/kitty.nix
+    ./configs/neovim.nix
+    ./configs/tmux.nix
     ./configs/wofi.nix
     ./configs/waybar.nix
     ./configs/zsh.nix
     ./configs/mako.nix
     ./configs/btop.nix
     ./configs/fastfetch.nix
+    ./packages/artemis-vcs.nix
   ];
 
   home.username = "splogdes";
@@ -33,12 +36,12 @@
     hyprlock
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     vscode
-    neovim
     spotify
     duf
-    tmux
     seahorse
     fzf
+    ripgrep
+    fd
     cava
     grimblast
     swappy

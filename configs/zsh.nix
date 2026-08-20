@@ -47,14 +47,15 @@ in
       local CL_RUST="${p.zsh p.rust}"
       local RST="%f"
 
-      function artemis_git() {
-        local ref
-        ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-        echo " ''${CL_DIM}⎇ ''${CL_AMBER}''${ref#refs/heads/}''${RST}"
+      function artemis_vcs() {
+        local label
+        label=$(artemis-vcs 2> /dev/null)
+        [[ -n "$label" ]] || return
+        echo " ''${CL_AMBER}''${label}''${RST}"
       }
 
-      # Line 1: orbit dot + cwd + git branch
-      PROMPT="''${CL_DIM}◦ ''${CL_TEXT}%~\$(artemis_git)"$'\n'
+      # Line 1: orbit dot + cwd + jj change or git branch
+      PROMPT="''${CL_DIM}◦ ''${CL_TEXT}%~\$(artemis_vcs)"$'\n'
       # Line 2: amber arrow on success, rust on error
       PROMPT+="%(?.''${CL_AMBER}.''${CL_RUST})❯ ''${RST}"
 
