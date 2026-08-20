@@ -32,12 +32,6 @@ in
 
       # --- ENV ---
       env = [
-        "LIBVA_DRIVER_NAME,nvidia"
-        "XDG_SESSION_TYPE,wayland"
-        "GBM_BACKEND,nvidia-drm"
-        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-        "WLR_NO_HARDWARE_CURSORS,1"
-        "_JAVA_AWT_WM_NONREPARENTING,1"
         "XDG_SCREENSHOTS_DIR,/home/splogdes/Pictures/Screenshots"
       ];
 
@@ -193,7 +187,7 @@ in
         "$mod SHIFT, R, exec, hyprctl reload"
 
         "$mod, D, exec, wofi --show drun" 
-        "$mod, Return, exec, kitty --single-instance" 
+        "$mod, Return, exec, kitty" 
         "$mod, Q, killactive," 
         "$mod, F, fullscreen, 0" 
         "$mod, Space, togglefloating,"
@@ -225,7 +219,7 @@ in
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioNext, exec, playerctl next"
         ", XF86AudioPrev, exec, playerctl previous"
-        ", XF86Calculator, exec, kitty --single-instance -e python3"
+        ", XF86Calculator, exec, kitty -e python3"
         ", XF86ScreenSaver, exec, hyprlock"
         ", XF86Search, exec, wofi --show drun"
       ];
