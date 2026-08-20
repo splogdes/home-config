@@ -4,7 +4,7 @@
     enable = true;
     package = pkgs.hyprland;
     xwayland.enable = true;
-    systemd.enable = true;
+    systemd.enable = false;
     configType = "hyprlang";
   
     settings = {

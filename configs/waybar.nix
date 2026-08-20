@@ -120,14 +120,14 @@ let
 in
 {
   systemd.user.services.waybar.Unit = {
-    After = lib.mkForce [ "hyprland-session.target" "pipewire.service" ];
+    After = lib.mkForce [ "graphical-session.target" "pipewire.service" ];
     Wants = [ "pipewire.service" ];
   };
 
   programs.waybar = {
     enable = true;
     systemd.enable = true;
-    systemd.targets = [ "hyprland-session.target" ];
+    systemd.targets = [ "graphical-session.target" ];
 
     settings = {
       mainBar = {
