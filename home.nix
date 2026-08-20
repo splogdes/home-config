@@ -59,7 +59,6 @@
     baobab
     gparted
     thunar
-    python3
     ddcutil
     obsidian
     claude-code
@@ -83,6 +82,11 @@
          --prefix XDG_DATA_DIRS : "${gtk3}/share/gsettings-schemas/${gtk3.name}:${gsettings-desktop-schemas}/share/gsettings-schemas/${gsettings-desktop-schemas.name}"
      '';
     })
+    arduino-ide
+    arduino-cli
+    (python3.withPackages (ps: [ ps.pyserial ]))
+    tio
+    i2c-tools
     # ckan is for kerbal space program mod management
     ckan
   ];
