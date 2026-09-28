@@ -14,6 +14,10 @@ in
 
       "$mod" = "SUPER";
 
+      xwayland = {
+        force_zero_scaling = true;
+      };
+
       # --- INPUT ---
       input = {
         kb_layout = "gb";

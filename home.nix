@@ -41,7 +41,12 @@
     pavucontrol
 
     # --- APPS ---
-    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+    (pkgs.wrapFirefox
+      (inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.zen-browser-unwrapped.overrideAttrs
+        (old: {
+          passthru = old.passthru // { withFFmpeg = true; };
+        }))
+      { pname = "zen-browser"; })
     vscode
     spotify
     signal-desktop
