@@ -3,7 +3,7 @@
 {
   home.packages = with pkgs; [
     # --- EDA / SIMULATION ---
-    ltspice
+    # ltspice
     (symlinkJoin {
       name = "kicad-themed";
       paths = [ kicad ];
