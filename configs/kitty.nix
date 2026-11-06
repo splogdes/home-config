@@ -9,6 +9,7 @@ let p = import ./palette.nix { inherit lib; }; in
       font_family = "JetBrainsMono Nerd Font";
       font_size = "12.5";
       disable_ligatures = "never";
+      enable_audio_bell = false;
 
       # --- BACKGROUND ---
       background = p.hex p.void;

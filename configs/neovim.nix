@@ -12,7 +12,7 @@ in
     withRuby = false;
     withPython3 = false;
 
-    # clipboard=unnamedplus needs a Wayland clipboard helper on Hyprland.
+    # clipboard=unnamedplus needs a clipboard helper.
     extraPackages = [ pkgs.wl-clipboard ];
 
     initLua = ''

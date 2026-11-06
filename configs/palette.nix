@@ -2,8 +2,7 @@
 # Blue roofs, mint walls and terracotta over a slate-teal dusk, drawn from
 # ~/Pictures/busan.jpg.
 # Colours are stored bare (no leading '#') so the helpers below can render each
-# consumer's format: kitty/dunst/btop want hex, hyprlock wants rgb()/rgba(),
-# hyprland wants its own hex-alpha rgba(), zsh wants %F{}.
+# consumer's format: most want hex, zsh wants %F{}.
 { lib }:
 
 let
@@ -48,17 +47,10 @@ let
     diffDeleteBg = "24130f";
     diffTextBg   = "2e2618";
   };
-
-  comp = c: i: toString (lib.fromHexString (builtins.substring i 2 c));
 in
 colors // {
   hex  = c: "#${c}";
   hexA = c: a: "#${c}${a}";
-
-  rgb  = c: "rgb(${comp c 0}, ${comp c 2}, ${comp c 4})";
-  rgba = c: a: "rgba(${comp c 0}, ${comp c 2}, ${comp c 4}, ${a})";
-
-  hyprRgba = c: a: "rgba(${c}${a})";
 
   zsh = c: "%F{#${c}}";
 }
