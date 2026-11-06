@@ -52,7 +52,7 @@ let
       fi
 
       if [ "$style" = tmux ]; then
-        printf '#[fg=${p.hex p.surface2},bg=default]#[fg=${p.hex p.blueBright},bg=${p.hex p.surface2}]%s#[fg=${p.hex p.surface2},bg=default]' \
+        printf '#[fg=${p.hex p.surface2},bg=default]#[fg=${p.hex p.tealBright},bg=${p.hex p.surface2}]%s#[fg=${p.hex p.surface2},bg=default]' \
           " $label "
       else
         printf '%s' "$label"

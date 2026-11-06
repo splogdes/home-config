@@ -1,48 +1,52 @@
-# Artemis — lofi/space palette.
-# Dusty blues, amber accents, cloud whites on deep void.
+# Busan — Gamcheon palette.
+# Blue roofs, mint walls and terracotta over a slate-teal dusk, drawn from
+# ~/Pictures/busan.jpg.
 # Colours are stored bare (no leading '#') so the helpers below can render each
-# consumer's format: kitty/mako/btop want hex, hyprlock wants rgb()/rgba(),
+# consumer's format: kitty/dunst/btop want hex, hyprlock wants rgb()/rgba(),
 # hyprland wants its own hex-alpha rgba(), zsh wants %F{}.
 { lib }:
 
 let
   colors = {
-    void     = "08090d";
-    surface0 = "0f1218";
-    surface1 = "15191f";
-    surface2 = "1f242e";
+    void     = "0c1419";
+    surface0 = "111c23";
+    surface1 = "16242c";
+    surface2 = "1f303a";
 
-    overlay = "3a4250";
-    dim     = "4a525e";
-    dim2    = "5a6270";
-    muted   = "7e8694";
+    overlay = "324c5c";
+    dim     = "52616c";
+    dim2    = "647d92";
+    muted   = "8a9aa8";
 
-    text   = "c8d1dc";
-    bright = "dbe4ec";
+    text   = "d6e0e7";
+    bright = "eef3f6";
 
-    amber       = "d49759";
-    amberBright = "f0b070";
-    amberDark   = "a85b2e";
+    roofDark   = "2f6294";
+    roof       = "4c8fc4";
+    roofBright = "74b3e0";
 
-    rust       = "b85842";
-    rustBright = "d27260";
+    tealDim       = "2f5a5e";
+    teal          = "6a9baf";
+    tealBright    = "74b3c4";
+    tealBrightest = "a3d8d6";
 
-    green       = "7da784";
-    greenBright = "9bc7a3";
+    brick       = "c4674a";
+    brickBright = "de8a6c";
 
-    blueDim       = "3a5b7a";
-    blue          = "6b8db0";
-    blueBright    = "8fb4d4";
-    blueBrightest = "b3d4ec";
+    forest       = "6f9a6a";
+    forestBright = "93bd8c";
 
-    violet       = "8a7aa0";
-    violetBright = "a89cc4";
+    haze       = "d9b48f";
+    hazeBright = "ecd2b0";
+
+    dusk       = "8f88b0";
+    duskBright = "aba5cc";
 
     # Tinted backgrounds for diff hunks — dark enough to sit under body text.
-    diffAddBg    = "0d1f12";
-    diffChangeBg = "1a1608";
-    diffDeleteBg = "1f0a08";
-    diffTextBg   = "2a1e0a";
+    diffAddBg    = "0e2019";
+    diffChangeBg = "1d1c14";
+    diffDeleteBg = "24130f";
+    diffTextBg   = "2e2618";
   };
 
   comp = c: i: toString (lib.fromHexString (builtins.substring i 2 c));

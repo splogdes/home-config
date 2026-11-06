@@ -28,7 +28,7 @@ in
       /* Main Window */
       window {
           margin: 0px;
-          border: 1px solid ${p.rgba p.amber "0.55"};
+          border: 1px solid ${p.rgba p.roof "0.55"};
           background-color: ${p.rgba p.void "0.78"};
           font-family: "JetBrainsMono Nerd Font", monospace;
           border-radius: 20px;
@@ -38,7 +38,7 @@ in
       #input {
           margin: 18px;
           padding: 12px 18px;
-          border: 1px solid ${p.rgba p.blueBright "0.35"};
+          border: 1px solid ${p.rgba p.tealBright "0.35"};
           border-radius: 14px;
           background-color: ${p.rgba p.surface0 "0.7"};
           color: ${p.hex p.bright};
@@ -46,7 +46,7 @@ in
       }
 
       #input:focus {
-          border: 1px solid ${p.rgba p.amber "0.55"};
+          border: 1px solid ${p.rgba p.roof "0.55"};
       }
 
       #inner-box {
@@ -80,8 +80,8 @@ in
 
       /* Selected Entry */
       #entry:selected {
-          background: linear-gradient(90deg, ${p.rgba p.amber "0.22"} 0%, ${p.rgba p.amber "0.0"} 100%);
-          border: 1px solid ${p.rgba p.amber "0.55"};
+          background: linear-gradient(90deg, ${p.rgba p.roof "0.22"} 0%, ${p.rgba p.roof "0.0"} 100%);
+          border: 1px solid ${p.rgba p.roof "0.55"};
           border-radius: 12px;
           outline: none;
       }
@@ -89,7 +89,7 @@ in
       #text:selected {
           color: ${p.hex p.bright};
           font-weight: 600;
-          text-shadow: 0px 0px 4px ${p.rgba p.amber "0.4"};
+          text-shadow: 0px 0px 4px ${p.rgba p.roof "0.4"};
       }
 
       #img {

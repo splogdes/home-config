@@ -25,7 +25,7 @@ in
           set -g @floax-bind '-n M-f'
           set -g @floax-width '80%'
           set -g @floax-height '80%'
-          set -g @floax-border-color '${p.hex p.amber}'
+          set -g @floax-border-color '${p.hex p.roof}'
           set -g @floax-text-color '${p.hex p.text}'
           set -g @floax-title 'scratch'
           set -g @floax-change-path 'true'
@@ -34,7 +34,7 @@ in
           # Seed them here so the first load doesn't spew "unknown variable".
           set-environment -g FLOAX_WIDTH '80%'
           set-environment -g FLOAX_HEIGHT '80%'
-          set-environment -g FLOAX_BORDER_COLOR '${p.hex p.amber}'
+          set-environment -g FLOAX_BORDER_COLOR '${p.hex p.roof}'
           set-environment -g FLOAX_TEXT_COLOR '${p.hex p.text}'
           set-environment -g FLOAX_TITLE 'scratch'
           set-environment -g FLOAX_CHANGE_PATH 'true'
@@ -121,48 +121,48 @@ in
       set -g status-left-length 40
       set -g status-right-length 120
 
-      set -g status-left "#[fg=${p.hex p.surface2},bg=default]#[fg=${p.hex p.amber},bg=${p.hex p.surface2},bold] #S #[fg=${p.hex p.surface2},bg=default,nobold] "
+      set -g status-left "#[fg=${p.hex p.surface2},bg=default]#[fg=${p.hex p.roof},bg=${p.hex p.surface2},bold] #S #[fg=${p.hex p.surface2},bg=default,nobold] "
 
-      set -g status-right "#(${continuum}/share/tmux-plugins/continuum/scripts/continuum_save.sh)#{?client_prefix,#[fg=${p.hex p.rust}]#[fg=${p.hex p.void}#,bg=${p.hex p.rust}#,bold] PREFIX #[fg=${p.hex p.rust}#,bg=default#,nobold],#(artemis-vcs --tmux '#{pane_current_path}')} #[fg=${p.hex p.surface2}]#[fg=${p.hex p.muted},bg=${p.hex p.surface2}] #h #[fg=${p.hex p.surface2},bg=default] #[fg=${p.hex p.blue}]#[fg=${p.hex p.void},bg=${p.hex p.blue},bold] %H:%M #[fg=${p.hex p.blue},bg=default,nobold]"
+      set -g status-right "#(${continuum}/share/tmux-plugins/continuum/scripts/continuum_save.sh)#{?client_prefix,#[fg=${p.hex p.brick}]#[fg=${p.hex p.void}#,bg=${p.hex p.brick}#,bold] PREFIX #[fg=${p.hex p.brick}#,bg=default#,nobold],#(artemis-vcs --tmux '#{pane_current_path}')} #[fg=${p.hex p.surface2}]#[fg=${p.hex p.muted},bg=${p.hex p.surface2}] #h #[fg=${p.hex p.surface2},bg=default] #[fg=${p.hex p.teal}]#[fg=${p.hex p.void},bg=${p.hex p.teal},bold] %H:%M #[fg=${p.hex p.teal},bg=default,nobold]"
 
       setw -g window-status-format "#[fg=${p.hex p.surface1},bg=default]#[fg=${p.hex p.muted},bg=${p.hex p.surface1}] #I #W#{?window_zoomed_flag, ,} #[fg=${p.hex p.surface1},bg=default]"
-      setw -g window-status-current-format "#[fg=${p.hex p.amberBright},bg=default]#[fg=${p.hex p.void},bg=${p.hex p.amberBright},bold] #I #W#{?window_zoomed_flag, ,} #[fg=${p.hex p.amberBright},bg=default,nobold]"
+      setw -g window-status-current-format "#[fg=${p.hex p.roofBright},bg=default]#[fg=${p.hex p.void},bg=${p.hex p.roofBright},bold] #I #W#{?window_zoomed_flag, ,} #[fg=${p.hex p.roofBright},bg=default,nobold]"
       setw -g window-status-separator " "
-      setw -g window-status-activity-style "fg=${p.hex p.void},bg=${p.hex p.green}"
-      setw -g window-status-bell-style "fg=${p.hex p.void},bg=${p.hex p.rust},bold"
+      setw -g window-status-activity-style "fg=${p.hex p.void},bg=${p.hex p.forest}"
+      setw -g window-status-bell-style "fg=${p.hex p.void},bg=${p.hex p.brick},bold"
 
       set -g pane-border-style "fg=${p.hex p.surface2}"
-      set -g pane-active-border-style "fg=${p.hex p.amber}"
+      set -g pane-active-border-style "fg=${p.hex p.roof}"
       # tmux has no rounded pane borders; single is the thinnest, least chunky
       # match for the rounded chrome everywhere else.
       set -g pane-border-lines single
       set -g pane-scrollbars modal
       set -g pane-scrollbars-style "bg=${p.hex p.surface1},fg=${p.hex p.dim}"
 
-      set -g message-style "fg=${p.hex p.void},bg=${p.hex p.amber},bold"
+      set -g message-style "fg=${p.hex p.void},bg=${p.hex p.roof},bold"
       set -g message-command-style "fg=${p.hex p.text},bg=${p.hex p.surface1}"
 
-      set -g mode-style "fg=${p.hex p.void},bg=${p.hex p.amber}"
-      set -g copy-mode-match-style "fg=${p.hex p.void},bg=${p.hex p.blueBright}"
-      set -g copy-mode-current-match-style "fg=${p.hex p.void},bg=${p.hex p.amberBright}"
-      set -g copy-mode-mark-style "fg=${p.hex p.void},bg=${p.hex p.violet}"
+      set -g mode-style "fg=${p.hex p.void},bg=${p.hex p.roof}"
+      set -g copy-mode-match-style "fg=${p.hex p.void},bg=${p.hex p.tealBright}"
+      set -g copy-mode-current-match-style "fg=${p.hex p.void},bg=${p.hex p.roofBright}"
+      set -g copy-mode-mark-style "fg=${p.hex p.void},bg=${p.hex p.dusk}"
 
       set -g display-panes-colour "${p.hex p.dim}"
-      set -g display-panes-active-colour "${p.hex p.amber}"
-      set -g clock-mode-colour "${p.hex p.amber}"
+      set -g display-panes-active-colour "${p.hex p.roof}"
+      set -g clock-mode-colour "${p.hex p.roof}"
       set -g clock-mode-style 24
 
-      set -g popup-border-style "fg=${p.hex p.amber}"
+      set -g popup-border-style "fg=${p.hex p.roof}"
       set -g popup-border-lines rounded
       set -g popup-style "fg=${p.hex p.text},bg=${p.hex p.surface0}"
 
       set -g menu-style "fg=${p.hex p.text},bg=${p.hex p.surface0}"
-      set -g menu-border-style "fg=${p.hex p.amber}"
+      set -g menu-border-style "fg=${p.hex p.roof}"
       set -g menu-border-lines rounded
-      set -g menu-selected-style "fg=${p.hex p.void},bg=${p.hex p.amber},bold"
+      set -g menu-selected-style "fg=${p.hex p.void},bg=${p.hex p.roof},bold"
 
       # sessionx renders through fzf; keep its popup on-palette too.
-      set -g @sessionx-additional-options "--color=fg:${p.hex p.text},bg:${p.hex p.surface0},hl:${p.hex p.amber} --color=fg+:${p.hex p.bright},bg+:${p.hex p.surface2},hl+:${p.hex p.amberBright} --color=info:${p.hex p.blue},prompt:${p.hex p.blueBright},pointer:${p.hex p.amber} --color=marker:${p.hex p.amber},spinner:${p.hex p.amber},header:${p.hex p.blue} --color=border:${p.hex p.surface2} --border=rounded"
+      set -g @sessionx-additional-options "--color=fg:${p.hex p.text},bg:${p.hex p.surface0},hl:${p.hex p.roof} --color=fg+:${p.hex p.bright},bg+:${p.hex p.surface2},hl+:${p.hex p.roofBright} --color=info:${p.hex p.teal},prompt:${p.hex p.tealBright},pointer:${p.hex p.roof} --color=marker:${p.hex p.roof},spinner:${p.hex p.roof},header:${p.hex p.teal} --color=border:${p.hex p.surface2} --border=rounded"
 
       # Continuum drives its save timer from a #(continuum_save.sh) job in
       # status-right. It only injects that itself when it believes no other

@@ -23,7 +23,7 @@ let p = import ./palette.nix { inherit lib; }; in
       hide_window_decorations = "yes";
 
       # --- CURSOR ---
-      cursor = p.hex p.amber;
+      cursor = p.hex p.roof;
       cursor_text_color = p.hex p.void;
       cursor_shape = "beam";
       cursor_beam_thickness = "1.5";
@@ -34,40 +34,40 @@ let p = import ./palette.nix { inherit lib; }; in
       tab_bar_style = "powerline";
       tab_powerline_style = "slanted";
       active_tab_foreground = p.hex p.void;
-      active_tab_background = p.hex p.amber;
+      active_tab_background = p.hex p.roof;
       active_tab_font_style = "bold";
       inactive_tab_foreground = p.hex p.muted;
       inactive_tab_background = p.hex p.surface0;
 
-      # --- ARTEMIS PALETTE ---
+      # --- BUSAN PALETTE ---
 
       # Black: void / mute
       color0  = p.hex p.surface1;
       color8  = p.hex p.overlay;
 
-      # Red: rust alert
-      color1  = p.hex p.rust;
-      color9  = p.hex p.rustBright;
+      # Red: terracotta brick
+      color1  = p.hex p.brick;
+      color9  = p.hex p.brickBright;
 
-      # Green: muted moss
-      color2  = p.hex p.green;
-      color10 = p.hex p.greenBright;
+      # Green: hillside forest
+      color2  = p.hex p.forest;
+      color10 = p.hex p.forestBright;
 
-      # Yellow: amber
-      color3  = p.hex p.amber;
-      color11 = p.hex p.amberBright;
+      # Yellow: horizon haze
+      color3  = p.hex p.haze;
+      color11 = p.hex p.hazeBright;
 
-      # Blue: ocean / atmosphere
-      color4  = p.hex p.blue;
-      color12 = p.hex p.blueBright;
+      # Blue: Gamcheon roofs
+      color4  = p.hex p.roof;
+      color12 = p.hex p.roofBright;
 
-      # Magenta: dusty violet
-      color5  = p.hex p.violet;
-      color13 = p.hex p.violetBright;
+      # Magenta: dusk
+      color5  = p.hex p.dusk;
+      color13 = p.hex p.duskBright;
 
-      # Cyan: glow blue (not neon)
-      color6  = p.hex p.blueBright;
-      color14 = p.hex p.blueBrightest;
+      # Cyan: mint walls
+      color6  = p.hex p.tealBright;
+      color14 = p.hex p.tealBrightest;
 
       # White: text / cloud
       color7  = p.hex p.text;
@@ -75,8 +75,8 @@ let p = import ./palette.nix { inherit lib; }; in
 
       # --- UX EXTRAS ---
       selection_foreground = p.hex p.void;
-      selection_background = p.hex p.amber;
-      url_color = p.hex p.blueBright;
+      selection_background = p.hex p.roof;
+      url_color = p.hex p.tealBright;
       url_style = "single";
     };
   };

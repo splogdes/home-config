@@ -4,7 +4,7 @@ let
 in
 {
 
-  # --- FZF (Artemis palette) ---
+  # --- FZF (Busan palette) ---
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
@@ -17,10 +17,10 @@ in
     FZF_ALT_C_COMMAND = "fd --type d --hidden --follow --exclude .git";
 
     FZF_DEFAULT_OPTS = " \
-      --color=fg:${p.hex p.text},bg:${p.hex p.void},hl:${p.hex p.amber} \
-      --color=fg+:${p.hex p.bright},bg+:${p.hex p.surface2},hl+:${p.hex p.amberBright} \
-      --color=info:${p.hex p.blue},prompt:${p.hex p.blueBright},pointer:${p.hex p.amber} \
-      --color=marker:${p.hex p.amber},spinner:${p.hex p.amber},header:${p.hex p.blue} \
+      --color=fg:${p.hex p.text},bg:${p.hex p.void},hl:${p.hex p.roof} \
+      --color=fg+:${p.hex p.bright},bg+:${p.hex p.surface2},hl+:${p.hex p.roofBright} \
+      --color=info:${p.hex p.teal},prompt:${p.hex p.tealBright},pointer:${p.hex p.roof} \
+      --color=marker:${p.hex p.roof},spinner:${p.hex p.roof},header:${p.hex p.teal} \
       --color=border:${p.hex p.surface2} \
       --border='rounded' --padding='1' --margin='1' \
       --prompt='search ❯ ' \
@@ -41,15 +41,15 @@ in
     };
 
     initContent = ''
-      # --- Artemis prompt ---
+      # --- Busan prompt ---
 
       setopt PROMPT_SUBST
 
-      local CL_BLUE="${p.zsh p.blueBright}"
-      local CL_AMBER="${p.zsh p.amber}"
+      local CL_BLUE="${p.zsh p.tealBright}"
+      local CL_AMBER="${p.zsh p.roof}"
       local CL_TEXT="${p.zsh p.text}"
       local CL_DIM="${p.zsh p.dim}"
-      local CL_RUST="${p.zsh p.rust}"
+      local CL_RUST="${p.zsh p.brick}"
       local RST="%f"
 
       function artemis_vcs() {
@@ -61,7 +61,7 @@ in
 
       # Line 1: orbit dot + cwd + jj change or git branch
       PROMPT="''${CL_DIM}◦ ''${CL_TEXT}%~\$(artemis_vcs)"$'\n'
-      # Line 2: amber arrow on success, rust on error
+      # Line 2: roof blue arrow on success, brick on error
       PROMPT+="%(?.''${CL_AMBER}.''${CL_RUST})❯ ''${RST}"
 
       RPROMPT="''${CL_DIM}[%T]''${RST}"

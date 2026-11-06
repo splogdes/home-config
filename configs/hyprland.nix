@@ -54,7 +54,7 @@ in
         gaps_out = 16;
         border_size = 1;
 
-        "col.active_border" = p.hyprRgba p.amber "bb";
+        "col.active_border" = p.hyprRgba p.roof "bb";
         "col.inactive_border" = p.hyprRgba p.surface0 "aa";
 
         resize_on_border = true;

@@ -4,7 +4,7 @@ let
   powerStyle = pkgs.writeText "power-style.css" ''
     window {
       background-color: ${p.rgba p.void "0.85"};
-      border: 1px solid ${p.rgba p.rust "0.65"};
+      border: 1px solid ${p.rgba p.brick "0.65"};
       border-radius: 14px;
       font-family: "JetBrainsMono Nerd Font", monospace;
     }
@@ -31,8 +31,8 @@ let
     }
 
     #entry:selected {
-      background: linear-gradient(90deg, ${p.rgba p.rust "0.22"} 0%, ${p.rgba p.rust "0.0"} 100%);
-      border-left: 2px solid ${p.hex p.rust};
+      background: linear-gradient(90deg, ${p.rgba p.brick "0.22"} 0%, ${p.rgba p.brick "0.0"} 100%);
+      border-left: 2px solid ${p.hex p.brick};
       border-radius: 4px;
       color: ${p.hex p.bright};
     }
@@ -41,7 +41,7 @@ let
   tempStyle = pkgs.writeText "temp-style.css" ''
     window {
       background-color: ${p.rgba p.void "0.85"};
-      border: 1px solid ${p.rgba p.amber "0.55"};
+      border: 1px solid ${p.rgba p.roof "0.55"};
       border-radius: 14px;
       font-family: "JetBrainsMono Nerd Font", monospace;
     }
@@ -55,8 +55,8 @@ let
     }
 
     #entry:selected {
-      background: linear-gradient(90deg, ${p.rgba p.amber "0.22"} 0%, ${p.rgba p.amber "0.0"} 100%);
-      border-left: 2px solid ${p.hex p.amber};
+      background: linear-gradient(90deg, ${p.rgba p.roof "0.22"} 0%, ${p.rgba p.roof "0.0"} 100%);
+      border-left: 2px solid ${p.hex p.roof};
       border-radius: 0px 4px 4px 0px;
       color: ${p.hex p.bright};
     }
@@ -279,10 +279,10 @@ in
             weeks-pos = "right";
             on-scroll = 1;
             format = {
-              months = "<span color='${p.hex p.blueBright}'><b>{}</b></span>";
+              months = "<span color='${p.hex p.tealBright}'><b>{}</b></span>";
               days = "<span color='${p.hex p.text}'>{}</span>";
               weeks = "<span color='${p.hex p.dim}'>w{}</span>";
-              today = "<span color='${p.hex p.amber}'><b><u>{}</u></b></span>";
+              today = "<span color='${p.hex p.roof}'><b><u>{}</u></b></span>";
             };
           };
 
@@ -319,7 +319,7 @@ in
       .modules-center,
       .modules-right {
           background-color: ${p.rgba p.void "0.55"};
-          border: 1px solid ${p.rgba p.amber "0.35"};
+          border: 1px solid ${p.rgba p.roof "0.35"};
           border-radius: 14px;
           padding: 2px 10px;
           margin: 2px 4px;
@@ -357,13 +357,13 @@ in
 
       /* --- ACCENTS --- */
       #custom-logo {
-          color: ${p.hex p.amber};
+          color: ${p.hex p.roof};
           font-size: 16px;
           padding: 0 9px 0 2px;
       }
 
       #custom-monitor-temp {
-          color: ${p.hex p.blueBright};
+          color: ${p.hex p.tealBright};
           font-size: 15px;
       }
 
@@ -374,7 +374,7 @@ in
       }
 
       #custom-power {
-          color: ${p.hex p.rust};
+          color: ${p.hex p.brick};
           font-size: 16px;
           padding: 0 9px 0 2px;
       }
@@ -395,18 +395,18 @@ in
       }
 
       #workspaces button.active {
-          color: ${p.hex p.amber};
-          background-color: ${p.rgba p.amber "0.12"};
+          color: ${p.hex p.roof};
+          background-color: ${p.rgba p.roof "0.12"};
       }
 
       #workspaces button:hover {
-          background-color: ${p.rgba p.blueBright "0.08"};
-          color: ${p.hex p.blueBright};
+          background-color: ${p.rgba p.tealBright "0.08"};
+          color: ${p.hex p.tealBright};
       }
 
       /* --- CAVA --- */
       #cava {
-          color: ${p.hex p.blue};
+          color: ${p.hex p.teal};
           font-size: 12px;
           font-family: "Symbols Nerd Font Mono";
           padding: 0 10px;
@@ -414,7 +414,7 @@ in
 
       /* --- MPRIS --- */
       #mpris {
-          color: ${p.hex p.blueBright};
+          color: ${p.hex p.tealBright};
           font-style: italic;
       }
 
@@ -424,11 +424,11 @@ in
       #disk,
       #pulseaudio,
       #bluetooth {
-          color: ${p.hex p.blueBright};
+          color: ${p.hex p.tealBright};
       }
 
       #custom-gpu-usage {
-          color: ${p.hex p.amber};
+          color: ${p.hex p.roof};
       }
 
       #pulseaudio.muted {
@@ -450,7 +450,7 @@ in
 
       tooltip {
           background-color: ${p.rgba p.void "0.95"};
-          border: 1px solid ${p.rgba p.amber "0.45"};
+          border: 1px solid ${p.rgba p.roof "0.45"};
           border-radius: 10px;
       }
 

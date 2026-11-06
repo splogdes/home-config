@@ -16,7 +16,7 @@ in
     extraPackages = [ pkgs.wl-clipboard ];
 
     initLua = ''
-      -- Artemis colorscheme
+      -- Busan colorscheme
       vim.o.termguicolors = true
       vim.o.background = "dark"
 
@@ -25,27 +25,27 @@ in
         bg1       = "${p.hex p.surface0}",
         bg2       = "${p.hex p.surface1}",
         bg3       = "${p.hex p.surface2}",
-        border    = "${p.hex p.blueDim}",
+        border    = "${p.hex p.tealDim}",
         muted     = "${p.hex p.overlay}",
         inactive  = "${p.hex p.dim}",
         subtle    = "${p.hex p.muted}",
         fg        = "${p.hex p.text}",
         fg_bright = "${p.hex p.bright}",
-        accent    = "${p.hex p.amber}",
-        accent_hi = "${p.hex p.amberBright}",
-        red       = "${p.hex p.rust}",
-        red_hi    = "${p.hex p.rustBright}",
-        green     = "${p.hex p.green}",
-        green_hi  = "${p.hex p.greenBright}",
-        yellow    = "${p.hex p.amber}",
-        yellow_hi = "${p.hex p.amberBright}",
-        blue      = "${p.hex p.blue}",
-        blue_hi   = "${p.hex p.blueBright}",
-        blue_br   = "${p.hex p.blueBrightest}",
-        magenta   = "${p.hex p.violet}",
-        magenta_hi= "${p.hex p.violetBright}",
-        cyan      = "${p.hex p.blueBright}",
-        cyan_hi   = "${p.hex p.blueBrightest}",
+        accent    = "${p.hex p.roof}",
+        accent_hi = "${p.hex p.roofBright}",
+        red       = "${p.hex p.brick}",
+        red_hi    = "${p.hex p.brickBright}",
+        green     = "${p.hex p.forest}",
+        green_hi  = "${p.hex p.forestBright}",
+        yellow    = "${p.hex p.haze}",
+        yellow_hi = "${p.hex p.hazeBright}",
+        blue      = "${p.hex p.teal}",
+        blue_hi   = "${p.hex p.tealBright}",
+        blue_br   = "${p.hex p.tealBrightest}",
+        magenta   = "${p.hex p.dusk}",
+        magenta_hi= "${p.hex p.duskBright}",
+        cyan      = "${p.hex p.tealBright}",
+        cyan_hi   = "${p.hex p.tealBrightest}",
         none      = "NONE",
       }
 

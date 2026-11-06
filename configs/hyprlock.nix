@@ -42,7 +42,7 @@ in
           dots_center = true;
           dots_rounding = -1;
 
-          outer_color = p.rgba p.amber "0.55";
+          outer_color = p.rgba p.roof "0.55";
           inner_color = p.rgba p.void "0.7";
           font_color = p.rgb p.bright;
 
@@ -52,8 +52,8 @@ in
 
           rounding = 28;
 
-          check_color = p.rgb p.blueBright;
-          fail_color = p.rgb p.rust;
+          check_color = p.rgb p.tealBright;
+          fail_color = p.rgb p.brick;
           fail_text = "<i>denied</i>";
         }
       ];
@@ -73,7 +73,7 @@ in
 
           shadow_passes = 3;
           shadow_size = 8;
-          shadow_color = p.rgba p.amber "0.35";
+          shadow_color = p.rgba p.roof "0.35";
         }
 
         # Date
