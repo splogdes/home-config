@@ -139,10 +139,10 @@ in
           { match.class = ".*"; suppress_event = "maximize"; }
           { match.class = "^(spotify)$"; opacity = "0.8 override 0.8 override"; }
 
-          { match.class = "^(zen.*)$"; workspace = "2 silent"; }
-          { match.class = "^(code)$"; workspace = "3 silent"; }
-          { match.class = "^(steam|signal)$"; workspace = "4 silent"; }
-          { match.class = "^(spotify)$"; workspace = "5 silent"; }
+          { match.class = "^(zen.*)$"; workspace = "2"; }
+          { match.class = "^(code)$"; workspace = "3"; }
+          { match.class = "^(steam|signal)$"; workspace = "4"; }
+          { match.class = "^(spotify)$"; workspace = "5"; }
 
           { match.class = "^(org.coolercontrol.CoolerControl)$"; float = true; size = "1200 700"; center = true; }
           { match.class = "^([Ss]olaar)$"; float = true; size = "1055 600"; center = true; }
